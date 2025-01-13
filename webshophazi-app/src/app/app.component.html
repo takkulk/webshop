@@ -1,0 +1,18 @@
+<div>
+  <h1>{{ 'TITLE' | translate }}</h1>
+  <button (click)="switchLanguage('en')">English</button>
+  <button (click)="switchLanguage('hu')">Magyar</button>
+
+  <h2>Products</h2>
+  <ul>
+    <li *ngFor="let product of products$ | async">
+      <div>{{ product.name }}</div>
+      <div>{{ product.category }}</div>
+      <div>{{ product.price | currency }}</div>
+      <button (click)="updateProduct(product.id)">Update</button>
+      <button (click)="deleteProduct(product.id)">Delete</button>
+    </li>
+  </ul>
+  <button (click)="addProduct()">Add Product</button>
+</div>
+
